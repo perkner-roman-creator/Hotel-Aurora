@@ -1,0 +1,37 @@
+# 🏨 Hotel Aurora - Moderní responzivní web pro hotel Aurora v Praze s rezervačním systémem a vícejazyčností.
+
+## Frontend
+- **HTML5** - struktura stránky
+- **CSS3** - (Flexbox, Grid, Animace)
+- **JavaScript** - (ES6+, localStorage)
+- **Google Maps** - interaktivní mapa
+- **localStorage** - ukládání rezervací v prohlížeči
+
+## ✨ Funkce
+- **Responzivní design** - pro všechna zařízení
+- **Rezervační systém** - online rezervace pokojů se kontrolou dostupnosti
+- **Správa pokojů** - Standard, Deluxe, Suite s inventárem a kapacitami
+- **Výpočet ceny** - mezisoučet, DPH 12%, celková cena
+- **Potvrzovací kód** - generování a správa rezervací (např. AUR-8F3D)
+- **Storno rezervace** - podle e-mailu a kódu
+- **Galerie pokojů** - s hover efekty a lightbox
+- **Kontaktní formulář** - s validací
+- **Vícejazyčnost** - CZ/EN přepínač
+- **Admin panel** - správa, export do CSV, smazání rezervací
+- **Moderní UI** - elegantan design s Playfair Display
+- **SEO optimalizace** - meta tagy, Open Graph
+- **Recenze hostů** - testimonials od spokojených hostů
+
+## 📋 Sekce
+1. **Hero** - s backgroundem a CTA tlačítkem
+2. **O nás** - popis hotelu a výhody
+3. **Pokoje** - přehled typů pokojů
+4. **Galerie** - fotografie pokojů a prostor
+5. **Rezervace** - formulář pro online rezervaci
+6. **Recenze** - hodnocení hostů
+7. **Kontakt** - telefonní čísla, e-mail a mapa
+8. **Footer** - rychlé odkazy a sociální sítě
+9. **Admin panel** - správa všech rezervací
+
+## 📝 Poznámky
+- Data se ukládají do `localStorage`; při vymazání dat prohlížeče se rezervace smažou.

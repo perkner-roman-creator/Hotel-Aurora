@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotel Aurora Praha – Rezervace a ubytování</title>
+  <meta name="description" content="Hotel Aurora v Praze – moderní ubytování, elegantní pokoje, restaurace, wellness. Okamžitá rezervace online.">
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://fav.farm/✨" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 11. Alert Banner - Novoroční nabídka -->
+  <div class="alert alert-warning alert-dismissible fade show m-0 rounded-0 text-center" role="alert" style="background: linear-gradient(135deg, #1f8a75 0%, #2fb8a6 100%); border: none; font-weight: 600; color: #0b1224; box-shadow: 0 2px 10px rgba(0,0,0,0.18);">
+    <span data-i18n="banner.offer">🎆 Novoroční sleva! 25% na všechny pokoje do 31.1. | Kód: </span><span class="badge" style="background-color:#0b1224; color:#e5e7eb; border:1px solid rgba(255,255,255,0.2);">2026</span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#hero" class="brand" aria-label="Hotel Aurora Praha domů"><span class="brand__icon">✦</span>AURORA<span class="brand__sub">HOTEL</span></a>
+      <nav class="menu" aria-label="Hlavní menu">
+        <a href="#booking" class="btn btn--nav-book" data-i18n="nav.book">Rezervovat</a>
+        <a href="#about" data-i18n="nav.about">O hotelu</a>
+        <a href="#rooms" data-i18n="nav.rooms">Pokoje</a>
+        <a href="#amenities" data-i18n="nav.amenities">Služby</a>
+        <a href="#gallery" data-i18n="nav.gallery">Galerie</a>
+        <a href="#location" data-i18n="nav.location">Lokalita</a>
+        <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language switcher">
+        <button type="button" class="lang__btn" data-lang="cs" aria-pressed="true">CZ</button>
+        <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="theme__btn" id="themeToggle" aria-pressed="false" aria-label="Toggle theme"><span class="theme-light">🌙</span><span class="theme-dark" style="display:none;">🔆</span></button>
+      </div>
+      <button class="nav__toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Otevřít menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <section id="hero" class="hero reveal">
+    <div class="hero__bg" role="img" aria-label="Noční panorama Prahy"></div>
+    <canvas class="hero__particles" aria-hidden="true"></canvas>
+    <div class="container hero__content">
+      <div class="hero__panel">
+        <h1 data-i18n="hero.title">Hotel Aurora Praha</h1>
+        <p data-i18n="hero.subtitle">Moderní elegance v srdci Evropy. Prožijte výjimečný pobyt v našich luxusních pokojích s výhledem na Prahu.</p>
+        <p style="margin-top: 24px; font-size: 18px; color: #d7b56d; font-weight: 600;" data-i18n="hero.cta">Zarezervuj si svůj pobyt již dnes</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about" class="section reveal">
+      <div class="container grid grid-2">
+        <div>
+          <h2 class="mb-4" data-i18n="about.title">O hotelu</h2>
+          <p class="mb-4" data-i18n="about.text">Aurora je butikový hotel v Praze spojující nadčasový design s českou pohostinností. Nabízíme wellness, špičkovou gastronomii a klidné zázemí pro váš odpočinek i práci.</p>
+          <ul class="list mb-4">
+            <li data-i18n="about.li1">Centrum Prahy, výborná dostupnost MHD</li>
+            <li data-i18n="about.li2">Wellness &amp; fitness, 24/7 recepce</li>
+            <li data-i18n="about.li3">Konferenční prostory a pracovny</li>
+          </ul>
+        </div>
+        <div class="card card--elev">
+          <h3 class="mb-4" data-i18n="about.boxTitle">Rychlá dostupnost</h3>
+          <p class="mb-16" data-i18n="about.boxText">5 min od Staroměstského náměstí, 20 min z letiště. Garance pozdního příjezdu.</p>
+          <div class="stats">
+            <div>
+              <div class="stat">4.8</div>
+              <div class="muted" data-i18n="about.rating">Hodnocení hostů</div>
+            </div>
+            <div>
+              <div class="stat">120+</div>
+              <div class="muted" data-i18n="about.rooms">Pokojů</div>
+            </div>
+            <div>
+              <div class="stat">200m</div>
+              <div class="muted" data-i18n="about.metro">od metra</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rooms" class="section section--alt reveal">
+      <div class="container">
+        <h2 class="mb-4" data-i18n="rooms.title">Pokoje</h2>
+        
+        <!-- 12. Skeleton Loader (skrytý, zobrazí se při načítání) -->
+        <div id="roomsLoader" class="d-none">
+          <div class="row g-4">
+            <div class="col-md-4" aria-hidden="true">
+              <div class="card">
+                <div class="placeholder-glow">
+                  <span class="placeholder col-12" style="height: 200px; display: block;"></span>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title placeholder-glow">
+                    <span class="placeholder col-6"></span>
+                  </h5>
+                  <p class="card-text placeholder-glow">
+                    <span class="placeholder col-7"></span>
+                    <span class="placeholder col-4"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rooms grid grid-3" id="roomsContent">
+          <!-- 9. Badges na kartách -->
+          <article class="room card" data-type="standard" style="position: relative;">
+            <span class="badge bg-success position-absolute top-0 end-0 m-3" style="z-index: 10;">✅ Dostupný</span>
+            <button class="gallery-link" style="border: none; background: none; padding: 0; cursor: pointer; display: block; width: 100%; height: auto;" data-bs-toggle="modal" data-bs-target="#galleryModal" data-title="Pokoj Standard" data-type="room" data-index="0">
+              <img src="images/Standard.png" alt="Pokoj Standard" class="img-fluid" style="width: 100%; display: block;" />
+              <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </button>
+            <div class="p-16">
+              <h3>Standard</h3>
+              <p data-i18n="rooms.standard">Komfortní pokoj s king-size postelí, chytrou TV a pracovním koutem.</p>
+              <div class="room__meta">
+                <span class="badge" data-price="1890">od 1 890 Kč / noc</span>
+                <span class="muted" data-i18n="rooms.capacity2">Kapacita 2</span>
+              </div>
+              <a href="#booking" class="btn btn--ghost mt-12" data-i18n="rooms.book">Rezervovat</a>
+            </div>
+          </article>
+          <article class="room card" data-type="deluxe" style="position: relative;">
+            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3" style="z-index: 10;">🔥 Bestseller</span>
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3" style="z-index: 10;">⏰ Poslední 2</span>
+            <button class="gallery-link" style="border: none; background: none; padding: 0; cursor: pointer; display: block; width: 100%; height: auto;" data-bs-toggle="modal" data-bs-target="#galleryModal" data-title="Pokoj Deluxe" data-type="room" data-index="1">
+              <img src="images/Deluxe.png" alt="Pokoj Deluxe" class="img-fluid" style="width: 100%; display: block;" />
+              <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </button>
+            <div class="p-16">
+              <h3>Deluxe</h3>
+              <p data-i18n="rooms.deluxe">Více prostoru, káva na pokoji a výhled na město. Ideální pro delší pobyty.</p>
+              <div class="room__meta">
+                <span class="badge" data-price="2890">od 2 890 Kč / noc</span>
+                <span class="muted" data-i18n="rooms.capacity3">Kapacita 3</span>
+              </div>
+              <a href="#booking" class="btn btn--ghost mt-12" data-i18n="rooms.book">Rezervovat</a>
+            </div>
+          </article>
+          <article class="room card" data-type="suite" style="position: relative;">
+            <span class="badge bg-info position-absolute top-0 end-0 m-3" style="z-index: 10;">⭐ Premium</span>
+            <button class="gallery-link" style="border: none; background: none; padding: 0; cursor: pointer; display: block; width: 100%; height: auto;" data-bs-toggle="modal" data-bs-target="#galleryModal" data-title="Pokoj Suite" data-type="room" data-index="2">
+              <img src="images/Suite.png" alt="Apartmá Suite" class="img-fluid" style="width: 100%; display: block;" />
+              <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </button>
+            <div class="p-16">
+              <h3>Suite</h3>
+              <p data-i18n="rooms.suite">Samostatný obývací prostor, vana a prémiové vybavení. Pro výjimečné chvíle.</p>
+              <div class="room__meta">
+                <span class="badge" data-price="4490">od 4 490 Kč / noc</span>
+                <span class="muted" data-i18n="rooms.capacity4">Kapacita 4</span>
+              </div>
+              <a href="#booking" class="btn btn--ghost mt-12" data-i18n="rooms.book">Rezervovat</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="amenities" class="section reveal">
+      <div class="container">
+        <h2 class="mb-4" data-i18n="amenities.title">Služby a vybavení</h2>
+        <div class="amenities grid grid-4">
+          <div class="amenity card--soft"><i class="fas fa-spa me-2"></i><span data-i18n="amenities.wellness">Spa & wellness</span></div>
+          <div class="amenity card--soft"><i class="fas fa-martini-glass me-2"></i><span data-i18n="amenities.food">Bar & terasa</span></div>
+          <div class="amenity card--soft"><i class="fas fa-microphone me-2"></i><span data-i18n="amenities.conf">Konferenční sály</span></div>
+          <div class="amenity card--soft"><i class="fas fa-shuttle-van me-2"></i><span data-i18n="amenities.transfer">Letištní transfer</span></div>
+          <div class="amenity card--soft"><i class="fas fa-dumbbell me-2"></i><span data-i18n="amenities.gym">Fitness centrum</span></div>
+          <div class="amenity card--soft"><i class="fas fa-wifi me-2"></i><span data-i18n="amenities.wifi">WiFi v celém hotelu</span></div>
+          <div class="amenity card--soft"><i class="fas fa-parking me-2"></i><span data-i18n="amenities.parking">Parkování</span></div>
+          <div class="amenity card--soft"><i class="fas fa-briefcase me-2"></i><span data-i18n="amenities.business">Business centrum</span></div>
+          <div class="amenity card--soft"><i class="fas fa-wheelchair me-2"></i><span data-i18n="amenities.accessible">Bezbariérový přístup</span></div>
+          <div class="amenity card--soft"><i class="fas fa-concierge-bell me-2"></i><span data-i18n="amenities.roomservice">Pokojová služba</span></div>
+          <div class="amenity card--soft"><i class="fas fa-smoking-ban me-2"></i><span data-i18n="amenities.nonsmoking">Nekuřácké pokoje</span></div>
+          <div class="amenity card--soft"><i class="fas fa-charging-station me-2"></i><span data-i18n="amenities.evcharging">Nabíjecí stanice EV</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section--alt reveal">
+      <div class="container">
+        <h2 class="mb-4" data-i18n="faq.title">Časté dotazy</h2>
+        <div class="faq">
+          <details class="faq__item">
+            <summary data-i18n="faq.q1">Jaký je čas check‑in a check‑out?</summary>
+            <div class="faq__content"><p data-i18n="faq.a1">Check‑in od 14:00, check‑out do 11:00. Pozdní odjezd dle dostupnosti.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q2">Nabízíte pozdní check‑out?</summary>
+            <div class="faq__content"><p data-i18n="faq.a2">Ano, na vyžádání. Potvrzení závisí na obsazenosti, případně s malým příplatkem.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q3">Je k dispozici parkování?</summary>
+            <div class="faq__content"><p data-i18n="faq.a3">Spolupracujeme s nedalekým krytým parkovištěm. Doporučujeme rezervaci předem.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q4">Je v ceně zahrnuta snídaně?</summary>
+            <div class="faq__content"><p data-i18n="faq.a4">Snídaně formou bufetu je dostupná denně 7:00–10:30. Balíčky se snídaní zvýhodněně.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q5">Jaké jsou storno podmínky?</summary>
+            <div class="faq__content"><p data-i18n="faq.a5">Flex tarif lze zrušit zdarma do 24 h před příjezdem. U předplacených tarifů platí zvláštní podmínky.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="faq.q6">Je možné mít na pokoji domácí zvířátko?</summary>
+            <div class="faq__content"><p data-i18n="faq.a6">Ano, vybrané pokoje jsou pet‑friendly. Prosíme o nahlášení předem; účtujeme malý poplatek za úklid. Asistenční psi zdarma. Max. 1 domácí mazlíček na pokoj.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section section--alt reveal">
+      <div class="container">
+        <h2 class="mb-4" data-i18n="gallery.title">Galerie</h2>
+        <!-- Gallery Grid - 4 velké obrázky v 2x2 layoutu -->
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <a href="images/Fitness centrum.png" class="gallery-link" data-bs-toggle="modal" data-bs-target="#galleryModal" data-title="Fitness centrum" data-index="0">
+              <img loading="lazy" src="images/Fitness centrum.png" alt="Fitness centrum" class="img-fluid rounded" />
+              <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6">
+            <a href="images/Konferenční místnost.png" class="gallery-link" data-bs-toggle="modal" data-bs-target="#galleryModal" data-title="Konferenční místnost" data-index="1">
+              <img loading="lazy" src="images/Konferenční místnost.png" alt="Konferenční místnost" class="img-fluid rounded" />
+              <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6">
+            <a href="images/Spa & wellness.png" class="gallery-link" data-bs-toggle="modal" data-bs-target="#galleryModal" data-title="Spa & wellness" data-index="2">
+              <img loading="lazy" src="images/Spa & wellness.png" alt="Spa & wellness" class="img-fluid rounded" />
+              <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6">
+            <a href="images/Bar & terasa.png" class="gallery-link" data-bs-toggle="modal" data-bs-target="#galleryModal" data-title="Bar & terasa" data-index="3">
+              <img loading="lazy" src="images/Bar & terasa.png" alt="Bar & terasa" class="img-fluid rounded" />
+              <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section reveal">
+      <div class="container">
+        <h2 class="mb-4" data-i18n="testimonials.title">Co říkají hosté</h2>
+        <div class="slider" data-slider>
+          <article class="testimonial is-active" data-slider-item>
+            <div class="testimonial__text" data-i18n="testimonials.t1">Nejlepší postel, ve které jsem spal a skvělé snídaně s výhledem na Pražský hrad.</div>
+            <div class="testimonial__meta">— Louis K., Paris</div>
+          </article>
+          <article class="testimonial" data-slider-item>
+            <div class="testimonial__text" data-i18n="testimonials.t2">Přijeli jsme s rodinou a každý z nás si zde našel, co hledal. Hotel se opravdu stará o své hosty.</div>
+            <div class="testimonial__meta">— Marek a Kateřina, Brno</div>
+          </article>
+          <article class="testimonial" data-slider-item>
+            <div class="testimonial__text" data-i18n="testimonials.t3">Praha je kouzelná, ale bez tohoto hotelu si ji nedokážu představit. Vracím se sem pořád, protože tady se opravdu cítím jako doma.</div>
+            <div class="testimonial__meta">— Sofia L., Barcelona</div>
+          </article>
+          <div class="slider__dots" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="section reveal">
+      <div class="container">
+        <h2 class="mb-4" data-i18n="booking.title">Online rezervace</h2>
+        
+        <!-- 4. Progress Bar - Kroky rezervace -->
+        <div class="booking-progress mb-4">
+          <div class="progress-step active" data-step="1">
+            <div class="progress-step-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="progress-step-label"><span data-i18n="progress.dates">Datum a pokoj</span></div>
+          </div>
+          <div class="progress-step" data-step="2">
+            <div class="progress-step-icon"><i class="fas fa-user"></i></div>
+            <div class="progress-step-label"><span data-i18n="progress.details">Osobní údaje</span></div>
+          </div>
+          <div class="progress-step" data-step="3">
+            <div class="progress-step-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="progress-step-label"><span data-i18n="progress.confirm">Potvrzení</span></div>
+          </div>
+        </div>
+        
+        <form id="bookingForm" class="card form" autocomplete="off">
+          <!-- 3. Mobile-optimized form grid -->
+          <div class="row g-2 g-md-3 form__grid">
+            <div class="col-12 col-md-6 col-lg-3 field">
+              <label for="checkin" data-i18n="booking.checkin" class="form-label">Příjezd</label>
+              <input type="date" id="checkin" class="form-control form-control-lg" required />
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 field">
+              <label for="checkout" data-i18n="booking.checkout" class="form-label">Odjezd</label>
+              <input type="date" id="checkout" class="form-control form-control-lg" required />
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 field">
+              <label for="roomType" data-i18n="booking.roomType" class="form-label">Typ pokoje</label>
+              <select id="roomType" class="form-select form-select-lg" required>
+                <option value="standard">Standard</option>
+                <option value="deluxe">Deluxe</option>
+                <option value="suite">Suite</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-3 field">
+              <label for="guests" data-i18n="booking.guests" class="form-label">Počet osob</label>
+              <input type="number" id="guests" class="form-control form-control-lg" min="1" max="4" value="2" required />
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 field">
+              <label for="roomsCount" data-i18n="booking.roomsCount" class="form-label">Pokoje</label>
+              <input type="number" id="roomsCount" class="form-control form-control-lg" min="1" max="5" value="1" required />
+            </div>
+            <div class="col-6 col-md-3 col-lg-3 field">
+              <label for="name" data-i18n="booking.name" class="form-label">Jméno</label>
+              <input type="text" id="name" placeholder="Jan Novák" class="form-control form-control-lg" required />
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 field">
+              <label for="email" data-i18n="booking.email" class="form-label">E-mail</label>
+              <input type="email" id="email" placeholder="jan.novak@example.com" class="form-control form-control-lg" required />
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 field">
+              <label for="phone" data-i18n="booking.phone" class="form-label">Telefon</label>
+              <input type="tel" id="phone" placeholder="+420 123 456 789" class="form-control form-control-lg" />
+            </div>
+          </div>
+
+          <div class="form__summary" aria-live="polite" style="margin-top: 24px;">
+            <div>
+              <div class="muted" data-i18n="summary.nights">Noci</div>
+              <div id="sumNights" class="sum">0</div>
+            </div>
+            <div>
+              <div class="muted" data-i18n="summary.nightPrice">Cena za noc</div>
+              <div id="sumNightPrice" class="sum">–</div>
+            </div>
+            <div>
+              <div class="muted" data-i18n="summary.subtotal">Mezisoučet</div>
+              <div id="sumSubtotal" class="sum">–</div>
+            </div>
+            <div>
+              <div class="muted" data-i18n="summary.vat">DPH 12 %</div>
+              <div id="sumVat" class="sum">–</div>
+            </div>
+            <div>
+              <div class="muted" data-i18n="summary.total">Celkem</div>
+              <div id="sumTotal" class="sum sum--accent">–</div>
+            </div>
+          </div>
+
+          <div class="form__actions" style="margin-top: 32px;">
+            <!-- 3. Spinner/Loading indikátor -->
+            <button type="button" id="checkBtn" class="btn btn--ghost" data-i18n="booking.check">
+              <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" id="checkSpinner"></span>
+              <span id="checkBtnText">Zkontrolovat dostupnost</span>
+            </button>
+            <button type="submit" class="btn btn--primary" data-i18n="booking.submit">
+              <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" id="submitSpinner"></span>
+              <span id="submitBtnText">Dokončit rezervaci</span>
+            </button>
+          </div>
+          <div id="availabilityMsg" class="availability" role="status" aria-live="polite"></div>
+        </form>
+
+        <details class="mt-16 admin-section">
+          <summary class="admin-section__header" data-i18n="manage.title"><i class="fas fa-search me-2"></i>Správa rezervace</summary>
+          <div class="admin-section__content">
+            <form id="manageForm" class="admin-form">
+              <div class="admin-form__fields">
+                <div class="field">
+                  <label for="manageEmail" data-i18n="manage.email"><i class="fas fa-envelope me-2"></i>E-mail</label>
+                  <input id="manageEmail" type="email" class="form-control" placeholder="jan.novak@example.com" data-i18n-attr="placeholder" data-i18n-placeholder="booking.emailPh" required />
+                </div>
+                <div class="field">
+                  <label for="manageCode" data-i18n="manage.code"><i class="fas fa-ticket-alt me-2"></i>Kód rezervace</label>
+                  <input id="manageCode" type="text" class="form-control" placeholder="např. AUR-8F3D" data-i18n-attr="placeholder" data-i18n-placeholder="manage.codePh" required />
+                </div>
+              </div>
+              <div class="admin-form__actions">
+                <button class="btn btn--primary" type="submit" data-i18n="manage.show"><i class="fas fa-eye me-2"></i>Zobrazit</button>
+                <button class="btn btn--danger" type="button" id="cancelBtn" data-i18n="manage.cancel"><i class="fas fa-times-circle me-2"></i>Zrušit rezervaci</button>
+              </div>
+            </form>
+            <div id="manageResult" class="manage"></div>
+          </div>
+        </details>
+
+        <details class="mt-16 admin-section">
+          <summary class="admin-section__header" data-i18n="admin.title"><i class="fas fa-user-shield me-2"></i>Admin</summary>
+          <div class="admin-section__content">
+            <form id="adminForm" class="admin-form">
+              <div class="admin-form__fields">
+                <div class="field">
+                  <label for="adminPass" data-i18n="admin.pass"><i class="fas fa-key me-2"></i>Admin kód</label>
+                  <input id="adminPass" type="password" class="form-control" placeholder="AURORA" />
+                </div>
+              </div>
+              <div class="admin-form__actions">
+                <button class="btn btn--primary" type="submit" id="adminLogin" data-i18n="admin.login"><i class="fas fa-list me-2"></i>Zobrazit rezervace</button>
+                <button class="btn btn--ghost" type="button" id="exportCsv" data-i18n="admin.export"><i class="fas fa-file-csv me-2"></i>Export CSV</button>
+                <button class="btn btn--ghost" type="button" id="seedDemo" data-i18n="admin.seed"><i class="fas fa-database me-2"></i>Naplnit demo data</button>
+                <button class="btn btn--danger" type="button" id="adminClear" data-i18n="admin.clear"><i class="fas fa-trash-alt me-2"></i>Smazat všechny</button>
+              </div>
+            </form>
+            <div id="adminList" class="admin"></div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="location" class="section section--alt reveal">
+      <div class="container grid grid-2">
+        <div>
+          <h2 class="mb-4" data-i18n="location.title">Kde nás najdete</h2>
+          <p data-i18n="location.text">Praha 1, Staré Město. Historické památky, kavárny a galerie na dosah pár minut pěšky.</p>
+          <ul class="list">
+            <li data-i18n="location.li1">Staroměstské náměstí – 5 min</li>
+            <li data-i18n="location.li2">Karlův most – 10 min</li>
+            <li data-i18n="location.li3">Metro A/B (Můstek) – 3 min</li>
+          </ul>
+        </div>
+        <div class="map">
+          <iframe title="Mapa Hotel Aurora Praha" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=50.08567485758266,14.412938011042565&z=17&hl=cs&output=embed" style="border:0;" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <div class="container grid grid-3">
+        <div>
+          <h2 class="mb-4" data-i18n="contact.title">Kontakt</h2>
+          <p class="muted" data-i18n="contact.reception">Recepce 24/7</p>
+          <p><strong>+420 222 111 000</strong><br> info@aurora-hotel.cz</p>
+        </div>
+        <div>
+          <h3 class="mb-3" data-i18n="contact.billing">Fakturace</h3>
+          <p>Aurora s.r.o., Novotného lávka, 110 00 Staré Město<br>IČ: 12345678, DIČ: CZ12345678</p>
+        </div>
+        <div>
+          <h3 class="mb-3" data-i18n="contact.special">Speciální přání</h3>
+          <p data-i18n="contact.text">Potřebujete dětskou postýlku, alergická jídla nebo pozdní check-out? Napište nám.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <div class="footer__section">
+        <h4 data-i18n="footer.support">Podpora</h4>
+        <ul class="footer__links">
+          <li><a href="#booking" data-i18n="footer.booking">Správa rezervace</a></li>
+          <li><a href="#contact" data-i18n="footer.contact">Kontaktujte nás</a></li>
+          <li><a href="#faq" data-i18n="footer.faq">Časté otázky</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__section">
+        <h4 data-i18n="footer.company">O společnosti</h4>
+        <ul class="footer__links">
+          <li><a href="#about" data-i18n="footer.about">O hotelu</a></li>
+          <li><a href="#gallery" data-i18n="footer.gallery">Galerie</a></li>
+          <li><a href="#rooms" data-i18n="footer.rooms">Pokoje</a></li>
+          <li><a href="#amenities" data-i18n="footer.amenities">Služby</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__section">
+        <h4 data-i18n="footer.legal">Právní informace</h4>
+        <ul class="footer__links">
+          <li><a href="#" data-i18n="footer.privacy">Ochrana soukromí</a></li>
+          <li><a href="#" data-i18n="footer.terms">Podmínky používání</a></li>
+          <li><a href="#" data-i18n="footer.cookies">Nastavení cookies</a></li>
+          <li><a href="#" data-i18n="footer.compliance">Soulad se zákony</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__section">
+        <h4 data-i18n="footer.follow">Sledujte nás</h4>
+        <div class="footer__social">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__copyright">
+            <p data-i18n="footer.copy">© 2026 Aurora Hotel Praha. Všechna práva vyhrazena.</p>
+          <p class="footer__legal-text">Aurora s.r.o., Novotného lávka, 110 00 Staré Město | IČ: 12345678</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="confirmDialog" class="dialog">
+    <form method="dialog" class="card">
+      <h3 data-i18n="dialog.title">Rezervace potvrzena</h3>
+      <p id="confirmText"></p>
+      <menu class="dialog__actions">
+        <button class="btn btn--primary" data-i18n="dialog.done">Hotovo</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <!-- 1. Toast Notifikace Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          ✅ Rezervace byla úspěšně odeslána!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+    <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          ❌ Chyba při zpracování rezervace.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+    <div id="infoToast" class="toast align-items-center text-bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          ℹ️ Kontroluji dostupnost...
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Gallery Modal Lightbox -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div class="modal-content bg-dark">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-white" id="galleryModalLabel"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0 d-flex align-items-center justify-content-center" style="min-height: 70vh;">
+          <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 80vh; object-fit: contain;">
+        </div>
+        <div class="modal-footer border-0 justify-content-center bg-dark">
+          <button type="button" class="btn btn-sm btn-outline-light d-inline-flex align-items-center justify-content-center gap-2 px-3" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+            <span>Předchozí</span>
+          </button>
+          <button type="button" class="btn btn-sm btn-outline-light d-inline-flex align-items-center justify-content-center gap-2 px-3" id="nextBtn">
+            <span>Další</span>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script>
+    // Toast trigger příklady
+    document.getElementById('checkBtn')?.addEventListener('click', function() {
+      const spinner = document.getElementById('checkSpinner');
+      const infoToast = new bootstrap.Toast(document.getElementById('infoToast'));
+      spinner?.classList.remove('d-none');
+      infoToast.show();
+      setTimeout(() => {
+        spinner?.classList.add('d-none');
+      }, 2000);
+    });
+
+    document.getElementById('bookingForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const spinner = document.getElementById('submitSpinner');
+      spinner?.classList.remove('d-none');
+      setTimeout(() => {
+        spinner?.classList.add('d-none');
+        const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+        successToast.show();
+        // Update progress bar
+        const progress = document.getElementById('bookingProgress');
+        if (progress) {
+          progress.style.width = '100%';
+          progress.textContent = 'Hotovo! ✓';
+        }
+      }, 1500);
+    });
+
+    // Price range slider update
+    document.getElementById('priceRange')?.addEventListener('input', function(e) {
+      document.getElementById('priceValue').textContent = e.target.value;
+    });
+
+    // 2. Gallery Modal - Lightbox with Navigation
+    const galleryImages = [
+      { src: 'images/Fitness centrum.png', title: 'Fitness centrum' },
+      { src: 'images/Konferenční místnost.png', title: 'Konferenční místnost' },
+      { src: 'images/Spa & wellness.png', title: 'Spa & wellness' },
+      { src: 'images/Bar & terasa.png', title: 'Bar & terasa' }
+    ];
+    
+      const roomImages = [
+        { src: 'images/Standard.png', title: 'Pokoj Standard' },
+        { src: 'images/Deluxe.png', title: 'Pokoj Deluxe' },
+        { src: 'images/Suite.png', title: 'Pokoj Suite' }
+      ];
+    
+    let currentImageIndex = 0;
+      let currentImageSet = 'gallery'; // 'gallery' or 'room'
+    const galleryModal = document.getElementById('galleryModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('galleryModalLabel');
+    
+    // Otevření modalu
+    document.querySelectorAll('.gallery-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+          currentImageSet = this.getAttribute('data-type') || 'gallery';
+        e.preventDefault();
+        currentImageIndex = parseInt(this.getAttribute('data-index'));
+        updateModalImage();
+      });
+    });
+    
+    function updateModalImage() {
+      const imageSet = currentImageSet === 'room' ? roomImages : galleryImages;
+      const img = imageSet[currentImageIndex];
+      modalImage.src = img.src;
+      modalTitle.textContent = img.title;
+    }
+    
+    document.getElementById('prevBtn')?.addEventListener('click', function() {
+      const imageSet = currentImageSet === 'room' ? roomImages : galleryImages;
+      currentImageIndex = (currentImageIndex - 1 + imageSet.length) % imageSet.length;
+      updateModalImage();
+    });
+    
+    document.getElementById('nextBtn')?.addEventListener('click', function() {
+      const imageSet = currentImageSet === 'room' ? roomImages : galleryImages;
+      currentImageIndex = (currentImageIndex + 1) % imageSet.length;
+      updateModalImage();
+    });
+    
+    // Klávesnicová navigace
+    document.addEventListener('keydown', function(e) {
+      if (galleryModal.classList.contains('show')) {
+        if (e.key === 'ArrowLeft') document.getElementById('prevBtn')?.click();
+        if (e.key === 'ArrowRight') document.getElementById('nextBtn')?.click();
+      }
+    });
+
+    // Progress bar simulation při klikání na inputy
+    const formInputs = document.querySelectorAll('#bookingForm input, #bookingForm select');
+    let filledFields = 0;
+    formInputs.forEach(input => {
+      input.addEventListener('change', () => {
+        filledFields++;
+        const progress = Math.min(33 + (filledFields / formInputs.length * 67), 100);
+        const bar = document.getElementById('bookingProgress');
+        if (bar) {
+          bar.style.width = progress + '%';
+          if (progress < 50) bar.textContent = 'Krok 1 z 3: Datum';
+          else if (progress < 85) bar.textContent = 'Krok 2 z 3: Údaje';
+          else bar.textContent = 'Krok 3 z 3: Kontrola';
+        }
+      });
+    });
+  </script>
+  <script src="app.js" defer></script>
+
+  <!-- Back to Top Button -->
+  <a href="#hero" class="back-to-top" title="Zpět na začátek"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Chatbot Widget -->
+  <div id="chatbotWidget" class="chatbot-widget">
+    <div class="chatbot-header">
+      <div class="chatbot-title">
+        <span data-i18n="chatbot.title">Asistent hotelu</span>
+        <span class="chatbot-icon">💬</span>
+      </div>
+      <button id="chatbotClose" class="chatbot-close" aria-label="Zavřít chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages" aria-live="polite" aria-label="Chat zprávy">
+      <div class="chatbot-message bot">
+        <p data-i18n="chatbot.welcome">Ahoj! 👋 Jak ti můžeme pomoci?</p>
+      </div>
+    </div>
+    
+    <div class="chatbot-chips" id="chatbotChips">
+      <button class="chatbot-chip" data-chip="checkin" data-i18n="chatbot.chip_checkin">Check-in/out</button>
+      <button class="chatbot-chip" data-chip="rooms" data-i18n="chatbot.chip_rooms">Pokoje</button>
+      <button class="chatbot-chip" data-chip="price" data-i18n="chatbot.chip_price">Ceny</button>
+      <button class="chatbot-chip" data-chip="parking" data-i18n="chatbot.chip_parking">Parkování</button>
+      <button class="chatbot-chip" data-chip="booking" data-i18n="chatbot.chip_booking">Rezervace</button>
+    </div>
+    
+    <div class="chatbot-input">
+      <input type="text" id="chatbotInput" class="chatbot-input-field" placeholder="Napiš zprávu..." data-i18n="chatbot.placeholder" aria-label="Zpráva pro asistenta" />
+      <button id="chatbotSend" class="chatbot-send" aria-label="Odeslat zprávu"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Chatbot Toggle Button -->
+  <button id="chatbotToggle" class="chatbot-toggle" aria-label="Otevřít chat s asistentem" title="Chat s asistentem">
+    <span class="chatbot-toggle-icon">💬</span>
+    <span class="chatbot-toggle-text" data-i18n="chatbot.toggle">Potřebuješ pomoct?</span>
+  </button>
+</body>
+</html>
